@@ -1,33 +1,83 @@
-# Portfolio (Sakshi Kanti)
+# Sakshi Kanti — Developer Portfolio
 
-Local preview:
+Personal portfolio of Sakshi Kanti, a BCA graduate and full-stack developer working with React, Next.js, Node.js, Python, and AI/ML.
 
-1. Place your PDF resume at `assets/Sakshi_Resume.pdf` (rename or replace as needed).
-2. Open `index.html` in a browser (double-click) or serve with a static server.
+🔗 **Live site:** [portfolio-tau-tawny-tlhav9tvtp.vercel.app](https://portfolio-tau-tawny-tlhav9tvtp.vercel.app/)
 
-Quick static server (Python):
+<!-- Add a screenshot: save it as preview.png next to this README, then uncomment -->
+<!-- ![Portfolio preview](preview.png) -->
 
-```bash
-python -m http.server 8000
-# open http://localhost:8000/portfolio/
+## Features
+
+- Responsive layout for mobile, tablet, and desktop
+- Typewriter hero, animated counters, scroll-reveal sections
+- Custom cursor and parallax background orbs (desktop only)
+- 3D tilt effect on project cards
+- Downloadable resume
+
+## Sections
+
+About · Skills · Projects · Education · Contact
+
+## Featured Projects
+
+| Project | Description | Stack |
+|---|---|---|
+| **Tripzy** | Travel comparison and booking platform with auth and payments | Next.js, FastAPI, TypeScript, Tailwind CSS |
+| **Roomzy** | PG and room rental platform with location-based search | React, Vite, Node.js, Supabase |
+| **Collegemate Web** | Campus navigation with graph-based shortest-path routing | React, TypeScript, Express, Axios |
+| **Mind Ease** | AI mental wellness chatbot with mood tracking | Python, Streamlit, NLP, ML |
+| **Chatbot Cloud** | Responsive AI chatbot using the Gemini API | HTML, CSS, JavaScript, Gemini API |
+
+## Tech Stack
+
+Plain HTML5, CSS3, and vanilla JavaScript. No framework or build step.
+Fonts from Google Fonts, icons from Font Awesome, hosted on Vercel.
+
+## Project Structure
+
+```
+.
+├── index.html
+├── style.css
+├── script.js
+├── Sakshi_Resume.pdf   # add your resume here
+└── README.md
 ```
 
-Deploy options:
+## Run Locally
 
-- GitHub Pages (recommended): push this folder to a repo and use the included GitHub Actions workflow to deploy the `portfolio/` folder to Pages automatically on push to `main`.
-- Vercel / Netlify: connect the repo and select the `portfolio/` folder as the publish directory — no build required.
+```bash
+git clone https://github.com/SakshiKanti10/<your-repo-name>.git
+cd <your-repo-name>
+python3 -m http.server 8000
+# open http://localhost:8000
+```
 
-GitHub Actions (automated):
+You can also just double-click `index.html`.
 
-1. Ensure your repository's default branch is `main`.
-2. Commit the `portfolio/` folder to the repo root.
-3. The workflow `.github/workflows/deploy.yml` will publish the folder to GitHub Pages on each push.
+## Customize
 
-Form submission:
-- To enable the contact form to send messages directly, create a Formspree form and set the publish endpoint value in the file `assets/script.js` by setting `window.FORM_ENDPOINT = 'https://formspree.io/f/your-id'` in a small inline script in `index.html` or by editing the JS file.
+- **Resume:** put your PDF in the project root as `Sakshi_Resume.pdf`. The "Download Resume" button in the hero section links to it.
+- **Project links:** in `index.html`, update the `href="#"` on each project's Live Demo and Source Code buttons (each project has two sets: the icons at the top and the buttons at the bottom).
+- **Counters:** the hero stats are set with `data-target` attributes in `index.html`.
+- **Typewriter text:** edit the `phrases` array at the top of `script.js`.
 
-Customizations:
-- Replace placeholder images in `assets/projects/` with screenshots of your projects.
-- Add your real project links into the `a` GitHub buttons or `data-link` attributes on the view buttons.
+## Deployment
 
+Hosted on [Vercel](https://vercel.com). To deploy your own copy:
 
+1. Push the repo to GitHub.
+2. Import it at [vercel.com/new](https://vercel.com/new).
+3. Leave the framework as **Other** and the build command empty.
+4. Deploy. Every push to `main` redeploys automatically.
+
+Netlify and GitHub Pages also work, since the site is fully static.
+
+## Contact
+
+- 📧 sakshiikantii@gmail.com
+- 💼 [LinkedIn](https://www.linkedin.com/in/sakshi-kanti10)
+- 🐙 [GitHub](https://github.com/SakshiKanti10)
+
+© 2026 Sakshi Kanti

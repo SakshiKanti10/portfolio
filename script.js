@@ -68,7 +68,11 @@ function typeLoop() {
   setTimeout(typeLoop, isDeleting ? 60 : 90);
 }
 
+let countersStarted = false;
+
 function animateCounters() {
+  if (countersStarted) return;
+  countersStarted = true;
   counterItems.forEach((item) => {
     const target = +item.dataset.target;
     const duration = 1800;
