@@ -1,191 +1,188 @@
-const header = document.querySelector('nav');
-const links = document.querySelectorAll('.nav-link');
-const sections = document.querySelectorAll('section[id]');
-const mobileMenu = document.getElementById('mobile-menu');
-const menuToggle = document.getElementById('menu-toggle');
-const cursorDot = document.querySelector('.cursor-dot');
-const cursorRing = document.querySelector('.cursor-ring');
-const revealElements = document.querySelectorAll('.reveal');
-const skillFills = document.querySelectorAll('.progress-fill');
-const counterItems = document.querySelectorAll('[data-target]');
-const typeText = document.getElementById('type-text');
-const phrases = ['web applications', 'AI-powered solutions', 'scalable platforms', 'user experiences'];
+const header = document.querySelector("nav");
+const links = document.querySelectorAll(".nav-link");
+const sections = document.querySelectorAll("#home, section[id]");
+const mobileMenu = document.getElementById("mobile-menu");
+const menuToggle = document.getElementById("menu-toggle");
+const revealElements = document.querySelectorAll(".reveal");
+const counterItems = document.querySelectorAll("[data-target]");
+const typeText = document.getElementById("type-text");
+const phrases = ["web applications", "AI-powered solutions", "scalable platforms", "user experiences"];
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 let phraseIndex = 0;
 let charIndex = 0;
-let typingForward = true;
 let isDeleting = false;
-
-const hero = document.querySelector('.hero');
-const orbElements = document.querySelectorAll('.orb');
-const cards = document.querySelectorAll('.project-card');
+let countersStarted = false;
+let scrollTicking = false;
 
 function updateHeader() {
-  if (window.scrollY > 30) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
+  header.classList.toggle("scrolled", window.scrollY > 24);
 }
 
 function setActiveLink() {
+  const line = (header?.offsetHeight || 72) + 96;
+  let current = "home";
   sections.forEach((section) => {
-    const top = section.getBoundingClientRect().top;
-    const id = section.getAttribute('id');
-    const link = document.querySelector(`.nav-link[href='#${id}']`);
-    if (top >= -100 && top <= window.innerHeight / 2) {
-      links.forEach((item) => item.classList.remove('active'));
-      if (link) link.classList.add('active');
-    }
+    if (section.getBoundingClientRect().top <= line) current = section.id;
+  });
+  const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+  if (atBottom) current = sections[sections.length - 1].id;
+  links.forEach((link) => {
+    const active = link.getAttribute("href") === `#${current}`;
+    link.classList.toggle("active", active);
+    if (active) link.setAttribute("aria-current", "page");
+    else link.removeAttribute("aria-current");
   });
 }
 
-function toggleMobileMenu() {
-  mobileMenu.classList.toggle('open');
-}
-
-function closeMobileMenu() {
-  mobileMenu.classList.remove('open');
+function setMenuOpen(open) {
+  mobileMenu.classList.toggle("open", open);
+  mobileMenu.setAttribute("aria-hidden", open ? "false" : "true");
+  menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+  menuToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  document.body.classList.toggle("menu-open", open);
+  if (open) {
+    const firstLink = mobileMenu.querySelector("a");
+    if (firstLink) firstLink.focus();
+  }
 }
 
 function typeLoop() {
+  if (!typeText) return;
+  if (reduceMotion) {
+    typeText.textContent = phrases[0];
+    return;
+  }
   const current = phrases[phraseIndex];
   if (!isDeleting) {
     typeText.textContent = current.slice(0, charIndex + 1);
     charIndex += 1;
     if (charIndex === current.length) {
       isDeleting = true;
-      setTimeout(typeLoop, 1500);
+      window.setTimeout(typeLoop, 1400);
       return;
     }
   } else {
-    typeText.textContent = current.slice(0, charIndex - 1);
+    typeText.textContent = current.slice(0, Math.max(0, charIndex - 1));
     charIndex -= 1;
-    if (charIndex === 0) {
+    if (charIndex <= 0) {
       isDeleting = false;
       phraseIndex = (phraseIndex + 1) % phrases.length;
     }
   }
-  setTimeout(typeLoop, isDeleting ? 60 : 90);
+  window.setTimeout(typeLoop, isDeleting ? 48 : 78);
 }
-
-let countersStarted = false;
 
 function animateCounters() {
   if (countersStarted) return;
   countersStarted = true;
   counterItems.forEach((item) => {
-    const target = +item.dataset.target;
-    const duration = 1800;
-    const increment = target / (duration / 30);
-    let current = 0;
-    const updateCount = () => {
-      current += increment;
-      if (current < target) {
-        item.textContent = `${Math.ceil(current)}+`;
-        requestAnimationFrame(updateCount);
-      } else {
-        item.textContent = `${target}+`;
-      }
+    const target = Number(item.dataset.target) || 0;
+    if (reduceMotion) {
+      item.textContent = `${target}+`;
+      return;
+    }
+    const start = performance.now();
+    const duration = 1100;
+    const step = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - (1 - progress) ** 3;
+      item.textContent = `${Math.round(target * eased)}+`;
+      if (progress < 1) requestAnimationFrame(step);
     };
-    updateCount();
-  });
-}
-
-function animateSkillBars() {
-  skillFills.forEach((fill) => {
-    const width = fill.dataset.width;
-    fill.style.width = width;
+    requestAnimationFrame(step);
   });
 }
 
 function createObserver() {
-  const options = { threshold: 0.16 };
+  if (!("IntersectionObserver" in window) || reduceMotion) {
+    revealElements.forEach((element) => element.classList.add("visible"));
+    animateCounters();
+    return;
+  }
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        if (entry.target.closest('.skills')) {
-          animateSkillBars();
-        }
-        if (entry.target.closest('.hero')) {
-          animateCounters();
-        }
-      }
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("visible");
+      if (entry.target.closest("#home")) animateCounters();
+      observer.unobserve(entry.target);
     });
-  }, options);
-
+  }, { threshold: 0.08 });
   revealElements.forEach((element) => observer.observe(element));
 }
 
-function handleCursor(e) {
-  const x = e.clientX;
-  const y = e.clientY;
-  cursorDot.style.opacity = '1';
-  cursorRing.style.opacity = '1';
-  cursorDot.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-  cursorRing.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-}
+function hardenLinks() {
+  document.querySelectorAll('a[target="_blank"]').forEach((anchor) => {
+    const rel = new Set((anchor.getAttribute("rel") || "").split(/\s+/).filter(Boolean));
+    rel.add("noopener");
+    rel.add("noreferrer");
+    anchor.setAttribute("rel", Array.from(rel).join(" "));
+  });
 
-function hideCursor() {
-  cursorDot.style.opacity = '0';
-  cursorRing.style.opacity = '0';
-}
-
-function attachCursorHover() {
-  document.querySelectorAll('a, button, .btn-cta, .social-pill, .project-action, .contact-pill, .btn-github').forEach((item) => {
-    item.addEventListener('mouseenter', () => cursorRing.classList.add('cursor-hover'));
-    item.addEventListener('mouseleave', () => cursorRing.classList.remove('cursor-hover'));
+  document.querySelectorAll('a[href="#"]').forEach((anchor) => {
+    anchor.classList.add("is-pending");
+    anchor.setAttribute("aria-disabled", "true");
+    if (!anchor.getAttribute("title")) {
+      anchor.setAttribute("title", "Link coming soon");
+    }
+    anchor.addEventListener("click", (event) => {
+      event.preventDefault();
+    });
   });
 }
 
-function handleOrbs(e) {
-  const x = (window.innerWidth / 2 - e.clientX) / 32;
-  const y = (window.innerHeight / 2 - e.clientY) / 32;
-  orbElements.forEach((orb, index) => {
-    const factor = index + 1;
-    orb.style.transform = `translate3d(${x * factor}px, ${y * factor}px, 0)`;
+function trapMenuFocus(event) {
+  if (event.key !== "Tab" || !mobileMenu.classList.contains("open")) return;
+  const items = [menuToggle, ...mobileMenu.querySelectorAll("a")];
+  const first = items[0];
+  const last = items[items.length - 1];
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
+}
+
+window.addEventListener("scroll", () => {
+  if (scrollTicking) return;
+  scrollTicking = true;
+  requestAnimationFrame(() => {
+    updateHeader();
+    setActiveLink();
+    scrollTicking = false;
   });
-}
+}, { passive: true });
 
-function cardTilt(event) {
-  const card = event.currentTarget;
-  const rect = card.getBoundingClientRect();
-  const x = event.clientX - rect.left;
-  const y = event.clientY - rect.top;
-  const midX = rect.width / 2;
-  const midY = rect.height / 2;
-  const rotateY = ((x - midX) / midX) * 6;
-  const rotateX = ((midY - y) / midY) * 6;
-  card.style.transform = `perspective(900px) rotateY(${rotateY}deg) rotateX(${rotateX}deg) translateY(-6px)`;
-}
+window.addEventListener("load", setActiveLink);
+window.addEventListener("hashchange", () => requestAnimationFrame(setActiveLink));
 
-function resetCard(event) {
-  event.currentTarget.style.transform = 'perspective(900px) rotateY(0deg) rotateX(0deg) translateY(0)';
-}
-
-window.addEventListener('scroll', () => {
-  updateHeader();
-  setActiveLink();
-});
-
-window.addEventListener('mousemove', (event) => {
-  if (window.innerWidth > 900) {
-    handleCursor(event);
-    handleOrbs(event);
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 860 && mobileMenu.classList.contains("open")) {
+    setMenuOpen(false);
   }
 });
 
-window.addEventListener('mouseleave', hideCursor);
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && mobileMenu.classList.contains("open")) {
+    setMenuOpen(false);
+    menuToggle.focus();
+    return;
+  }
+  trapMenuFocus(event);
+});
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener("DOMContentLoaded", () => {
   typeLoop();
   createObserver();
-  attachCursorHover();
-  links.forEach((link) => link.addEventListener('click', closeMobileMenu));
-  menuToggle.addEventListener('click', toggleMobileMenu);
-  document.querySelectorAll('.project-card').forEach((card) => {
-    card.addEventListener('mousemove', cardTilt);
-    card.addEventListener('mouseleave', resetCard);
+  hardenLinks();
+  updateHeader();
+  setActiveLink();
+  menuToggle.addEventListener("click", () => {
+    setMenuOpen(!mobileMenu.classList.contains("open"));
   });
-  document.addEventListener('touchstart', hideCursor, { passive: true });
+  mobileMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setMenuOpen(false));
+  });
 });
