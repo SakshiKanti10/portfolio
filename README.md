@@ -48,8 +48,8 @@ Fonts from Google Fonts, icons from Font Awesome, hosted on Vercel.
 ## Run Locally
 
 ```bash
-git clone https://github.com/SakshiKanti10/<your-repo-name>.git
-cd <your-repo-name>
+git clone https://github.com/SakshiKanti10/portfolio.git
+cd portfolio
 python3 -m http.server 8000
 # open http://localhost:8000
 ```
