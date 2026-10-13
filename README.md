@@ -1,83 +1,43 @@
-# Sakshi Kanti — Developer Portfolio
+# Sakshi Kanti — Portfolio
 
-Personal portfolio of Sakshi Kanti, a BCA graduate and full-stack developer working with React, Next.js, Node.js, Python, and AI/ML.
+Personal site for Sakshi Kanti, a 2026 BCA graduate from Graphic Era Hill University, Dehradun.
 
-🔗 **Live site:** [portfolio-tau-tawny-tlhav9tvtp.vercel.app](https://portfolio-tau-tawny-tlhav9tvtp.vercel.app/)
+Published URL: https://sakshi-kanti.vercel.app/
 
-<!-- Add a screenshot: save it as preview.png next to this README, then uncomment -->
-<!-- ![Portfolio preview](preview.png) -->
+This repository has the updated pages. Deploying them is a separate step.
 
-## Features
+## What is on the page
 
-- Responsive layout for mobile, tablet, and desktop
-- Typewriter hero, animated counters, scroll-reveal sections
-- Custom cursor and parallax background orbs (desktop only)
-- 3D tilt effect on project cards
-- Downloadable resume
+- Hero, selected work, more projects, skills, about, education, certification, and contact
+- Tripzy links to the live site and the GitHub repository
+- Chatbot Cloud, CollegeMate, Roomzy, and Mind Ease are described from project work. Their live demos and source repositories are not linked because they are not published
+- Resume download: `assets/Sakshi_Resume.pdf`
 
-## Sections
-
-About · Skills · Projects · Education · Contact
-
-## Featured Projects
-
-| Project | Description | Stack |
-|---|---|---|
-| **Tripzy** | Travel comparison and booking platform with auth and payments | Next.js, FastAPI, TypeScript, Tailwind CSS |
-| **Roomzy** | PG and room rental platform with location-based search | React, Vite, Node.js, Supabase |
-| **Collegemate Web** | Campus navigation with graph-based shortest-path routing | React, TypeScript, Express, Axios |
-| **Mind Ease** | AI mental wellness chatbot with mood tracking | Python, Streamlit, NLP, ML |
-| **Chatbot Cloud** | Responsive AI chatbot using the Gemini API | HTML, CSS, JavaScript, Gemini API |
-
-## Tech Stack
-
-Plain HTML5, CSS3, and vanilla JavaScript. No framework or build step.
-Fonts from Google Fonts, icons from Font Awesome, hosted on Vercel.
-
-## Project Structure
+## Project structure
 
 ```
-.
-├── index.html
-├── style.css
-├── script.js
-├── Sakshi_Resume.pdf   # add your resume here
-└── README.md
+index.html
+style.css
+script.js
+assets/Sakshi_Resume.pdf
+assets/favicon.svg
+README.md
 ```
 
-## Run Locally
+The page is static HTML, CSS, and JavaScript. Fonts come from Google Fonts. There is no build step.
+
+## Run locally
 
 ```bash
 git clone https://github.com/SakshiKanti10/portfolio.git
 cd portfolio
-python3 -m http.server 8000
-# open http://localhost:8000
+python -m http.server 8000
 ```
 
-You can also just double-click `index.html`.
-
-## Customize
-
-- **Resume:** put your PDF in the project root as `Sakshi_Resume.pdf`. The "Download Resume" button in the hero section links to it.
-- **Project links:** in `index.html`, update the `href="#"` on each project's Live Demo and Source Code buttons (each project has two sets: the icons at the top and the buttons at the bottom).
-- **Counters:** the hero stats are set with `data-target` attributes in `index.html`.
-- **Typewriter text:** edit the `phrases` array at the top of `script.js`.
-
-## Deployment
-
-Hosted on [Vercel](https://vercel.com). To deploy your own copy:
-
-1. Push the repo to GitHub.
-2. Import it at [vercel.com/new](https://vercel.com/new).
-3. Leave the framework as **Other** and the build command empty.
-4. Deploy. Every push to `main` redeploys automatically.
-
-Netlify and GitHub Pages also work, since the site is fully static.
+Open http://localhost:8000
 
 ## Contact
 
-- 📧 sakshiikantii@gmail.com
-- 💼 [LinkedIn](https://www.linkedin.com/in/sakshi-kanti10)
-- 🐙 [GitHub](https://github.com/SakshiKanti10)
-
-© 2026 Sakshi Kanti
+- sakshikanti801@gmail.com
+- https://www.linkedin.com/in/sakshi-kanti10
+- https://github.com/SakshiKanti10

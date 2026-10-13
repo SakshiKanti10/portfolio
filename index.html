@@ -3,358 +3,296 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sakshi Kanti | Developer Portfolio</title>
-    <meta name="description" content="Sakshi Kanti - BCA Graduate and Full-Stack Developer specializing in React, Node.js, Python, and AI-powered applications.">
-    <meta property="og:title" content="Sakshi Kanti | Developer Portfolio">
-    <meta property="og:description" content="Full-Stack Developer & BCA Graduate building web applications and AI solutions.">
-    <meta property="og:type" content="website">
-    <meta name="theme-color" content="#0a0a0f">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link rel="stylesheet" href="style.css">
-    <script>document.documentElement.classList.add("js");</script>
+    <title>Sakshi Kanti — Developer Portfolio</title>
+    <meta
+      name="description"
+      content="Sakshi Kanti is a 2026 BCA graduate from Graphic Era Hill University in Dehradun, looking for entry-level software development, frontend, full-stack, and technical support roles."
+    />
+    <link rel="canonical" href="https://sakshi-kanti.vercel.app/" />
+    <meta property="og:title" content="Sakshi Kanti — Developer Portfolio" />
+    <meta
+      property="og:description"
+      content="2026 BCA graduate building web applications with APIs and databases. Selected projects, skills, and contact."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sakshi-kanti.vercel.app/" />
+    <meta name="theme-color" content="#F7F4EC" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css?v=4" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sakshi Kanti",
+        "url": "https://sakshi-kanti.vercel.app/",
+        "email": "sakshikanti801@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Dehradun",
+          "addressRegion": "Uttarakhand",
+          "addressCountry": "IN"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Graphic Era Hill University"
+        },
+        "sameAs": [
+          "https://github.com/SakshiKanti10",
+          "https://www.linkedin.com/in/sakshi-kanti10"
+        ]
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <nav aria-label="Primary">
-      <div class="navbar container">
-        <a href="#home" class="brand"><span>&lt;</span>Sakshi.<span>/</span><span>&gt;</span></a>
-        <div class="nav-links">
-          <a href="#about" class="nav-link">About</a>
-          <a href="#skills" class="nav-link">Skills</a>
-          <a href="#projects" class="nav-link">Projects</a>
-          <a href="#education" class="nav-link">Education</a>
-          <a href="#contact" class="nav-link">Contact</a>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="#top">Sakshi Kanti</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+          Menu
+        </button>
+        <div class="nav-links" id="site-menu">
+          <a href="#work">Work</a>
+          <a href="#skills">Skills</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
         </div>
-        <div class="nav-actions">
-          <a href="assets/Sakshi_Resume.pdf" class="btn-resume" download>Resume</a>
-          <a href="https://github.com/SakshiKanti10" target="_blank" rel="noopener noreferrer" class="btn-github"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
-          <button id="menu-toggle" class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-            <span class="hamburger-box" aria-hidden="true"><span></span><span></span><span></span></span>
-          </button>
-        </div>
-      </div>
-    </nav>
-
-    <div id="mobile-menu" aria-hidden="true">
-      <div class="mobile-links">
-        <a href="#about">01. About</a>
-        <a href="#skills">02. Skills</a>
-        <a href="#projects">03. Projects</a>
-        <a href="#education">04. Education</a>
-        <a href="#contact">05. Contact</a>
-      </div>
-      <div class="mobile-actions">
-        <a class="btn-resume" href="assets/Sakshi_Resume.pdf" download>Download Resume</a>
-        <a class="btn-github" href="https://github.com/SakshiKanti10" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
-      </div>
-    </div>
-
-    <header class="hero" id="home">
-      <div class="orb orb-1" aria-hidden="true"></div>
-      <div class="orb orb-2" aria-hidden="true"></div>
-      <div class="orb orb-3" aria-hidden="true"></div>
-      <div class="hero-content container">
-        <div class="hero-grid">
-          <div class="hero-text reveal">
-            <p class="hero-pretitle">Hi, my name is</p>
-            <h1 class="hero-title">Sakshi <strong>Kanti.</strong></h1>
-            <div class="typewriter">
-              <p>Building</p>
-              <strong id="type-text"></strong>
-              <span class="cursor" aria-hidden="true"></span>
-            </div>
-            <p class="hero-copy">
-              BCA Graduate passionate about crafting digital experiences. I specialize in building <strong>full-stack web applications</strong>, <strong>AI-powered solutions</strong>, and <strong>scalable platforms</strong> that solve real-world problems.
-            </p>
-            <div class="hero-actions">
-              <a href="#projects" class="btn-primary">Explore My Work</a>
-              <a href="#contact" class="btn-secondary">Get In Touch</a>
-              <a href="assets/Sakshi_Resume.pdf" class="btn-secondary" download>Download Resume</a>
-            </div>
-            <div class="hero-socials">
-              <a href="https://github.com/SakshiKanti10" target="_blank" rel="noopener noreferrer" class="social-pill"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
-              <a href="https://www.linkedin.com/in/sakshi-kanti10" target="_blank" rel="noopener noreferrer" class="social-pill"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
-              <a href="mailto:sakshiikantii@gmail.com" class="social-pill"><i class="fas fa-envelope" aria-hidden="true"></i> Email</a>
-              <a href="tel:+919619973665" class="social-pill"><i class="fas fa-phone" aria-hidden="true"></i> Phone</a>
-            </div>
-            <div class="hero-counters">
-              <div class="counter-card reveal"><span data-target="5">0+</span><p>Projects Completed</p></div>
-              <div class="counter-card reveal"><span data-target="8">0+</span><p>Technologies Used</p></div>
-              <div class="counter-card reveal"><span data-target="3">0+</span><p>Years Coding</p></div>
-            </div>
-          </div>
-          <div class="hero-visual reveal">
-            <div class="code-window">
-              <div class="code-top">
-                <div class="code-dots">
-                  <span class="dot red"></span>
-                  <span class="dot yellow"></span>
-                  <span class="dot green"></span>
-                </div>
-                <div class="code-file">sakshi.js</div>
-              </div>
-              <pre class="code-body"><code><span class="token-key">const</span> developer = {
-  <span class="token-property">name</span>: <span class="token-string">"Sakshi Kanti"</span>,
-  <span class="token-property">role</span>: <span class="token-string">"Full-Stack Developer"</span>,
-  <span class="token-property">location</span>: <span class="token-string">"Mumbai, India"</span>,
-  <span class="token-property">skills</span>: [<span class="token-string">"React"</span>, <span class="token-string">"Node.js"</span>, <span class="token-string">"Python"</span>, <span class="token-string">"AI/ML"</span>],
-  <span class="token-property">available</span>: <span class="token-boolean">true</span>,
-  <span class="token-property">coffee</span>: <span class="token-string">"Always brewing ☕"</span>
-};</code></pre>
-            </div>
-          </div>
-        </div>
-        <div class="scroll-indicator reveal">
-          <div class="mouse" aria-hidden="true"><div class="mouse-dot"></div></div>
-          <p>Scroll to explore</p>
-        </div>
-      </div>
+      </nav>
     </header>
 
-    <main class="container" id="main">
-      <section class="about" id="about">
-        <div class="section-title reveal"><h2>About Me</h2></div>
-        <div class="about-grid">
-          <div class="about-copy reveal">
-            <p>I'm a BCA graduate from Graphic Era Hill University with a deep passion for technology and problem-solving. My journey in development started with curiosity and evolved into building production-ready applications. From creating AI chatbots with NLP to developing full-stack travel platforms, I enjoy working across the entire development lifecycle.</p>
-            <p>I believe in writing clean code, designing intuitive interfaces, and building systems that scale. When I'm not coding, you'll find me exploring new frameworks, contributing to open-source, or optimizing my latest project for better performance.</p>
-            <div class="tag-list">
-              <div class="tag-pill"><i class="fas fa-check-circle" aria-hidden="true"></i>Problem Solver</div>
-              <div class="tag-pill"><i class="fas fa-check-circle" aria-hidden="true"></i>Quick Learner</div>
-              <div class="tag-pill"><i class="fas fa-check-circle" aria-hidden="true"></i>Team Player</div>
-              <div class="tag-pill"><i class="fas fa-check-circle" aria-hidden="true"></i>Detail Oriented</div>
-            </div>
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow">BCA, 2026 · Graphic Era Hill University · Dehradun</p>
+          <h1>I build things for the web.</h1>
+          <p class="lede">
+            I’m Sakshi Kanti, a 2026 BCA graduate with hands-on experience building web applications and working with APIs and databases. I’m looking for an entry-level role where I can keep learning as part of an engineering or technical team.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#work">View Projects</a>
+            <a class="button button-ghost" href="assets/Sakshi_Resume.pdf" download="Sakshi_Kanti_Resume.pdf">
+              Download Resume
+            </a>
+            <a class="text-link" href="https://github.com/SakshiKanti10" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="text-link" href="https://www.linkedin.com/in/sakshi-kanti10" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="text-link" href="#contact">Contact Me</a>
           </div>
-          <div class="about-visual reveal">
-            <div class="code-window">
-              <div class="code-top">
-                <div class="code-dots">
-                  <span class="dot red"></span>
-                  <span class="dot yellow"></span>
-                  <span class="dot green"></span>
-                </div>
-                <div class="code-file">sakshi.js</div>
+        </div>
+        <aside class="hero-aside" aria-label="At a glance">
+          <p class="kicker">Open to</p>
+          <ul>
+            <li>Software development</li>
+            <li>Frontend and full-stack</li>
+            <li>Graduate software engineering</li>
+            <li>Technical and application support</li>
+          </ul>
+          <p class="aside-meta">CGPA 7.64/10 · Dehradun, Uttarakhand</p>
+        </aside>
+      </section>
+
+      <section class="work" id="work">
+        <div class="section-heading">
+          <h2>Selected work</h2>
+          <p>
+            Three projects first. Tripzy has a live site and a public repository. The others are academic projects; their source code is not published yet.
+          </p>
+        </div>
+
+        <div class="featured">
+          <article class="feature feature-lead">
+            <p class="index" aria-hidden="true">01</p>
+            <div class="feature-copy">
+              <p class="kicker">Travel comparison</p>
+              <h3>Tripzy</h3>
+              <p>
+                A travel app for comparing flights and trains. I built the Next.js interface in TypeScript and Tailwind CSS: the search form, results, shared navigation and footer, and loading and error states. Search goes through a FastAPI service. Account pages cover signup, login, email verification, and password reset, and there is a bookings page.
+              </p>
+              <ul class="tags" aria-label="Technologies">
+                <li>Next.js</li>
+                <li>TypeScript</li>
+                <li>Tailwind CSS</li>
+                <li>FastAPI</li>
+                <li>REST APIs</li>
+              </ul>
+              <p class="links">
+                <a href="https://tripzy-teal.vercel.app/" target="_blank" rel="noopener noreferrer">Live demo</a>
+                <a href="https://github.com/SakshiKanti10/Tripzy" target="_blank" rel="noopener noreferrer">Source code</a>
+              </p>
+            </div>
+          </article>
+
+          <div class="feature-row">
+            <article class="feature">
+              <p class="index" aria-hidden="true">02</p>
+              <div class="feature-copy">
+                <p class="kicker">AI chatbot</p>
+                <h3>Chatbot Cloud</h3>
+                <p>
+                  A chat page in HTML, CSS, and JavaScript. It sends a prompt to the Google Gemini API, shows a loading indicator while the request is in progress, and shows an error if the call fails. I tested the requests in the browser’s developer tools.
+                </p>
+                <ul class="tags" aria-label="Technologies">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                  <li>Google Gemini API</li>
+                </ul>
+                <p class="pending">Live demo and source code are not published yet.</p>
               </div>
-              <pre class="code-body"><code><span class="token-key">const</span> developer = {
-  <span class="token-property">name</span>: <span class="token-string">"Sakshi Kanti"</span>,
-  <span class="token-property">role</span>: <span class="token-string">"Full-Stack Developer"</span>,
-  <span class="token-property">location</span>: <span class="token-string">"Mumbai, India"</span>,
-  <span class="token-property">skills</span>: [<span class="token-string">"React"</span>, <span class="token-string">"Node.js"</span>, <span class="token-string">"Python"</span>, <span class="token-string">"AI/ML"</span>],
-  <span class="token-property">available</span>: <span class="token-boolean">true</span>,
-  <span class="token-property">coffee</span>: <span class="token-string">"Always brewing ☕"</span>
-};</code></pre>
-            </div>
+            </article>
+
+            <article class="feature">
+              <p class="index" aria-hidden="true">03</p>
+              <div class="feature-copy">
+                <p class="kicker">Campus navigation</p>
+                <h3>CollegeMate</h3>
+                <p>
+                  A campus navigation app in React and TypeScript, with an Express API. It uses graph-based shortest-path logic, an interactive SVG map with clickable landmarks, and a faculty availability status API.
+                </p>
+                <ul class="tags" aria-label="Technologies">
+                  <li>React.js</li>
+                  <li>TypeScript</li>
+                  <li>Express.js</li>
+                  <li>REST APIs</li>
+                </ul>
+                <p class="pending">Live demo and source code are not published yet.</p>
+              </div>
+            </article>
           </div>
+        </div>
+
+        <div class="more">
+          <h3 class="more-title">More projects</h3>
+          <article class="project">
+            <p class="index">04</p>
+            <div>
+              <h3>Roomzy</h3>
+              <p>A room rental app. People can search accommodation and filter by location and budget.</p>
+              <ul class="tags" aria-label="Technologies">
+                <li>React.js</li>
+                <li>Node.js</li>
+                <li>Express.js</li>
+                <li>Supabase</li>
+              </ul>
+              <p class="pending">Live demo and source code are not published yet.</p>
+            </div>
+          </article>
+          <article class="project">
+            <p class="index">05</p>
+            <div>
+              <h3>Mind Ease</h3>
+              <p>
+                A mental wellness and mood-tracking app in Python and Streamlit. It categorises sentiment, recommends a next step, and charts mood data.
+              </p>
+              <ul class="tags" aria-label="Technologies">
+                <li>Python</li>
+                <li>Streamlit</li>
+                <li>NLP</li>
+                <li>Pandas</li>
+                <li>Matplotlib</li>
+              </ul>
+              <p class="pending">Live demo and source code are not published yet.</p>
+            </div>
+          </article>
         </div>
       </section>
 
       <section class="skills" id="skills">
-        <div class="section-title reveal"><h2>Technical Arsenal</h2></div>
-        <div class="skills-grid">
-          <div class="skill-card reveal">
-            <h3><i class="fas fa-code" aria-hidden="true"></i>Languages</h3>
-            <ul class="language-list">
-              <li>Java</li>
-              <li>Python</li>
-              <li>JavaScript</li>
-              <li>TypeScript</li>
-              <li>C/C++</li>
-            </ul>
-          </div>
-          <div class="skill-card reveal">
-            <h3><i class="fas fa-layer-group" aria-hidden="true"></i>Frontend & Backend</h3>
-            <div class="tech-tags">
-              <span class="tech-tag big">React.js</span>
-              <span class="tech-tag big">Next.js</span>
-              <span class="tech-tag big">Node.js</span>
-              <span class="tech-tag big">Express.js</span>
-              <span class="tech-tag">FastAPI</span>
-              <span class="tech-tag">Tailwind CSS</span>
-              <span class="tech-tag">Vite</span>
-              <span class="tech-tag">HTML5</span>
-              <span class="tech-tag">CSS3</span>
-              <span class="tech-tag">REST APIs</span>
-            </div>
-          </div>
-          <div class="skill-card reveal">
-            <h3><i class="fas fa-database" aria-hidden="true"></i>Database & Tools</h3>
-            <div class="tech-tags">
-              <span class="tech-tag big">MySQL</span>
-              <span class="tech-tag big">Supabase</span>
-              <span class="tech-tag">Git</span>
-              <span class="tech-tag">GitHub</span>
-              <span class="tech-tag">Streamlit</span>
-              <span class="tech-tag">NLP</span>
-              <span class="tech-tag">Machine Learning</span>
-              <span class="tech-tag">Pandas</span>
-            </div>
-          </div>
+        <div class="section-heading">
+          <h2>Skills</h2>
+          <p>What I’ve used in coursework and in the projects above. These are tools I can work with, not a claim of professional depth in each one.</p>
         </div>
+        <dl class="skill-grid">
+          <div>
+            <dt>Languages</dt>
+            <dd>Java, Python, JavaScript, TypeScript, C, C++</dd>
+          </div>
+          <div>
+            <dt>Frontend</dt>
+            <dd>React.js, Next.js, HTML5, CSS3, Tailwind CSS</dd>
+          </div>
+          <div>
+            <dt>Backend and APIs</dt>
+            <dd>Node.js, Express.js, FastAPI, REST APIs</dd>
+          </div>
+          <div>
+            <dt>Databases</dt>
+            <dd>MySQL, Supabase</dd>
+          </div>
+          <div>
+            <dt>AI and data</dt>
+            <dd>Google Gemini API, NLP, Machine Learning, Pandas, Matplotlib</dd>
+          </div>
+          <div>
+            <dt>Tools</dt>
+            <dd>Git, GitHub, VS Code, Vercel</dd>
+          </div>
+          <div class="skill-wide">
+            <dt>Fundamentals</dt>
+            <dd>Data Structures and Algorithms, OOP, Operating Systems, Computer Networks, Software Engineering</dd>
+          </div>
+        </dl>
       </section>
 
-      <section class="projects" id="projects">
-        <div class="section-title reveal"><h2>Featured Projects</h2></div>
-        <div class="projects-grid">
-          <article class="project-card featured reveal">
-            <div class="project-top">
-              <div class="project-folder"><i class="fas fa-folder-open" aria-hidden="true"></i> TRIPZY</div>
-              <div class="project-links">
-                <a href="https://tripzy-teal.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Tripzy live demo" title="Live Demo"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
-                <a href="#" aria-label="Tripzy source code" title="Source code link coming soon"><i class="fab fa-github" aria-hidden="true"></i></a>
-              </div>
-            </div>
-            <h3>Full-stack travel comparison and booking platform</h3>
-            <p>Tripzy is a premium travel platform with search, price comparison, secure booking management, authentication, and payment integration for seamless travel planning.</p>
-            <div class="project-tags">
-              <span class="project-tag">Next.js</span>
-              <span class="project-tag">FastAPI</span>
-              <span class="project-tag">TypeScript</span>
-              <span class="project-tag">Tailwind CSS</span>
-            </div>
-            <div class="project-footer">
-              <a class="project-action" href="https://tripzy-teal.vercel.app/" target="_blank" rel="noopener noreferrer">Live Demo</a>
-              <a class="project-action" href="#" title="Source code link coming soon">Source Code</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal">
-            <div class="project-top">
-              <div class="project-folder"><i class="fas fa-folder-open" aria-hidden="true"></i> ROOMZY</div>
-              <div class="project-links">
-                <a href="#" aria-label="Roomzy live demo" title="Live demo link coming soon"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
-                <a href="#" aria-label="Roomzy source code" title="Source code link coming soon"><i class="fab fa-github" aria-hidden="true"></i></a>
-              </div>
-            </div>
-            <h3>PG & room rental platform</h3>
-            <p>Roomzy supports authentication, booking management, CRUD workflows, and location-based search to help users find the ideal shared accommodation.</p>
-            <div class="project-tags">
-              <span class="project-tag">React.js</span>
-              <span class="project-tag">Vite</span>
-              <span class="project-tag">Node.js</span>
-              <span class="project-tag">Supabase</span>
-            </div>
-            <div class="project-footer">
-              <a class="project-action" href="#" title="Live demo link coming soon">Live Demo</a>
-              <a class="project-action" href="#" title="Source code link coming soon">Source Code</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal">
-            <div class="project-top">
-              <div class="project-folder"><i class="fas fa-folder-open" aria-hidden="true"></i> COLLEGEMATE WEB</div>
-              <div class="project-links">
-                <a href="#" aria-label="Collegemate Web live demo" title="Live demo link coming soon"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
-                <a href="#" aria-label="Collegemate Web source code" title="Source code link coming soon"><i class="fab fa-github" aria-hidden="true"></i></a>
-              </div>
-            </div>
-            <h3>Campus navigation and faculty availability</h3>
-            <p>Collegemate Web offers graph-based shortest-path routing, interactive SVG maps, role-based auth, and REST API integration for better campus access.</p>
-            <div class="project-tags">
-              <span class="project-tag">React</span>
-              <span class="project-tag">TypeScript</span>
-              <span class="project-tag">Express</span>
-              <span class="project-tag">Axios</span>
-            </div>
-            <div class="project-footer">
-              <a class="project-action" href="#" title="Live demo link coming soon">Live Demo</a>
-              <a class="project-action" href="#" title="Source code link coming soon">Source Code</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal">
-            <div class="project-top">
-              <div class="project-folder"><i class="fas fa-folder-open" aria-hidden="true"></i> MIND EASE</div>
-              <div class="project-links">
-                <a href="#" aria-label="Mind Ease live demo" title="Live demo link coming soon"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
-                <a href="#" aria-label="Mind Ease source code" title="Source code link coming soon"><i class="fab fa-github" aria-hidden="true"></i></a>
-              </div>
-            </div>
-            <h3>AI-powered mental wellness chatbot</h3>
-            <p>Mind Ease uses NLP emotion detection, mood tracking, and analytics dashboards to help users monitor wellbeing and receive intelligent support.</p>
-            <div class="project-tags">
-              <span class="project-tag">Python</span>
-              <span class="project-tag">Streamlit</span>
-              <span class="project-tag">NLP</span>
-              <span class="project-tag">Machine Learning</span>
-            </div>
-            <div class="project-footer">
-              <a class="project-action" href="#" title="Live demo link coming soon">Live Demo</a>
-              <a class="project-action" href="#" title="Source code link coming soon">Source Code</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal">
-            <div class="project-top">
-              <div class="project-folder"><i class="fas fa-folder-open" aria-hidden="true"></i> CHATBOT CLOUD</div>
-              <div class="project-links">
-                <a href="#" aria-label="Chatbot Cloud live demo" title="Live demo link coming soon"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
-                <a href="#" aria-label="Chatbot Cloud source code" title="Source code link coming soon"><i class="fab fa-github" aria-hidden="true"></i></a>
-              </div>
-            </div>
-            <h3>Responsive AI chatbot interface</h3>
-            <p>Chatbot Cloud delivers real-time AI responses through a responsive UI connected to Google Gemini and REST APIs for conversational experiences.</p>
-            <div class="project-tags">
-              <span class="project-tag">HTML</span>
-              <span class="project-tag">CSS</span>
-              <span class="project-tag">JavaScript</span>
-              <span class="project-tag">Google Gemini API</span>
-            </div>
-            <div class="project-footer">
-              <a class="project-action" href="#" title="Live demo link coming soon">Live Demo</a>
-              <a class="project-action" href="#" title="Source code link coming soon">Source Code</a>
-            </div>
-          </article>
+      <section class="about" id="about">
+        <div class="section-heading">
+          <h2>About</h2>
+          <p>A short version of where I am, and the role I’m hoping to find.</p>
         </div>
-      </section>
-
-      <section class="education" id="education">
-        <div class="section-title reveal"><h2>Education</h2></div>
-        <div class="timeline reveal">
-          <div class="timeline-item">
-            <div class="timeline-top"><i class="fas fa-graduation-cap" aria-hidden="true"></i><strong>BCA - Graphic Era Hill University, Dehradun</strong></div>
-            <p>2023 - 2026 • CGPA 7.64</p>
-            <div class="timeline-tags">
-              <span class="timeline-tag">Data Structures</span>
-              <span class="timeline-tag">OOP</span>
-              <span class="timeline-tag">DBMS</span>
-              <span class="timeline-tag">Computer Networks</span>
-              <span class="timeline-tag">Software Engineering</span>
-            </div>
+        <div class="about-layout">
+          <div class="about-copy">
+            <p>
+              I studied computer applications at Graphic Era Hill University and finished in 2026 with a CGPA of 7.64. The projects on this page are how I learned to build: connecting a page to an API, reading the error when it failed, and fixing a layout that broke on a smaller screen.
+            </p>
+            <p>
+              I like practical problems more than abstract ones. I’m looking for a first role in software development, frontend or full-stack work, graduate software engineering, or technical and application support. I want to grow with a team, not pretend I already know the job.
+            </p>
           </div>
-          <div class="timeline-item">
-            <div class="timeline-top"><i class="fas fa-school" aria-hidden="true"></i><strong>Intermediate - Army Public School, Clement Town</strong></div>
-            <p>2021 - 2023 • 70.80%</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-top"><i class="fas fa-book" aria-hidden="true"></i><strong>High School - Army Public School, Clement Town</strong></div>
-            <p>2020 - 2021 • 80.40%</p>
+          <div class="education">
+            <h3>Education</h3>
+            <ol>
+              <li>
+                <strong>Bachelor of Computer Applications</strong>
+                <span>Graphic Era Hill University, Dehradun</span>
+                <span>2026 · CGPA 7.64/10</span>
+              </li>
+            </ol>
+            <h3 class="cert-heading">Certification</h3>
+            <ol>
+              <li>
+                <strong>HackerRank Skill Certification — SQL (Basic)</strong>
+              </li>
+            </ol>
           </div>
         </div>
       </section>
 
       <section class="contact" id="contact">
-        <div class="section-title reveal"><h2>Get In Touch</h2></div>
-        <p class="reveal">I'm currently looking for internship and entry-level opportunities. Whether you have a question or just want to say hi, my inbox is always open!</p>
-        <a href="mailto:sakshiikantii@gmail.com" class="contact-btn reveal"><i class="fas fa-paper-plane" aria-hidden="true"></i> Say Hello</a>
-        <div class="social-row reveal">
-          <a class="contact-pill" href="https://github.com/SakshiKanti10" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
-          <a class="contact-pill" href="https://www.linkedin.com/in/sakshi-kanti10" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
-          <a class="contact-pill" href="mailto:sakshiikantii@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> Email</a>
-          <a class="contact-pill" href="tel:+919619973665"><i class="fas fa-phone" aria-hidden="true"></i> Phone</a>
-          <a class="contact-pill" href="assets/Sakshi_Resume.pdf" download><i class="fas fa-file-arrow-down" aria-hidden="true"></i> Resume</a>
+        <div class="section-heading">
+          <h2>Contact</h2>
+          <p>I’m in Dehradun and open to entry-level software, web, and technical support roles.</p>
         </div>
+        <ul class="contact-list">
+          <li><a href="mailto:sakshikanti801@gmail.com">sakshikanti801@gmail.com</a></li>
+          <li><a href="tel:+919619973665">+91 96199 73665</a></li>
+          <li><a href="https://github.com/SakshiKanti10" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/sakshi-kanti10" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="assets/Sakshi_Resume.pdf" download="Sakshi_Kanti_Resume.pdf">Download resume</a></li>
+        </ul>
       </section>
     </main>
 
-    <footer>
-      <p>Designed & Built with ❤️ by Sakshi Kanti</p>
-      <p>© 2026 Sakshi Kanti. All rights reserved.</p>
+    <footer class="site-footer">
+      <p>Sakshi Kanti · Dehradun, Uttarakhand</p>
+      <p><a href="https://sakshi-kanti.vercel.app/">sakshi-kanti.vercel.app</a></p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=3"></script>
   </body>
 </html>
